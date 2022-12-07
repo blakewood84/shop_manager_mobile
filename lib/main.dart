@@ -1,8 +1,21 @@
 import 'package:flutter/material.dart';
-import 'package:shop_manager_mobile/authentication/check_authentication.dart';
+import 'package:firebase_core/firebase_core.dart';
+import 'package:hooks_riverpod/hooks_riverpod.dart';
 
-void main() {
-  runApp(const App());
+import 'package:shop_manager_mobile/firebase_options.dart';
+import 'package:shop_manager_mobile/screens/authentication/check_authentication.dart';
+
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp(
+    options: DefaultFirebaseOptions.currentPlatform,
+  );
+
+  runApp(
+    const ProviderScope(
+      child: App(),
+    ),
+  );
 }
 
 class App extends StatelessWidget {
@@ -12,7 +25,7 @@ class App extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Flutter Demo',
+      title: 'Shop Manager Demo',
       theme: ThemeData.dark(),
       home: const CheckAuthentication(),
     );
