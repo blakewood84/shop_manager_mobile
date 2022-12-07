@@ -1,0 +1,46 @@
+{
+  "project_info": {
+    "project_number": "62126138815",
+    "project_id": "shop-manager-3d017",
+    "storage_bucket": "shop-manager-3d017.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:62126138815:android:10de9e4e7bfad093936d0a",
+        "android_client_info": {
+          "package_name": "com.example.shop_manager_mobile"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "62126138815-osjrfdp2c77n6nlb0b4otopcr8vkg8e1.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAgJpLLlK1tvpAZx7ebuGZ-Xxe56lJRfBA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "62126138815-osjrfdp2c77n6nlb0b4otopcr8vkg8e1.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "62126138815-1j1t7hs8q3mb8qvpr2e8c3pd3a9dr3al.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.caddydaddys.storemanager"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
