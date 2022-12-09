@@ -3,7 +3,7 @@ import 'package:firebase_core/firebase_core.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
 import 'package:shop_manager_mobile/firebase_options.dart';
-import 'package:shop_manager_mobile/screens/authentication/check_authentication.dart';
+import 'package:shop_manager_mobile/features/dashboard/views/dashboard.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -27,7 +27,7 @@ class App extends StatelessWidget {
     return MaterialApp(
       title: 'Shop Manager Demo',
       theme: ThemeData.dark(),
-      home: const CheckAuthentication(),
+      home: const Dashboard(),
     );
   }
 }
