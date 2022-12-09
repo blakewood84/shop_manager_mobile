@@ -1,20 +1,16 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/src/widgets/container.dart';
+import 'package:flutter/src/widgets/framework.dart';
+import 'package:shop_manager_mobile/main.dart';
 
-import 'package:shop_manager_mobile/features/client/views/client.dart';
-
-/// Displays 2 options:
-/// - Admin
-/// - Client
-
-class Dashboard extends StatelessWidget {
-  const Dashboard({super.key});
+class ClientView extends StatelessWidget {
+  const ClientView({super.key});
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Dashboard'),
-        centerTitle: true,
+        leading: const SizedBox.shrink(),
       ),
       body: LayoutBuilder(
         builder: (_, constraints) {
@@ -37,7 +33,7 @@ class Dashboard extends StatelessWidget {
                           ),
                         ),
                         onPressed: () {},
-                        child: const Text('Admin'),
+                        child: const Text('Walkin'),
                       ),
                     ),
                     const SizedBox(width: 50),
@@ -51,14 +47,12 @@ class Dashboard extends StatelessWidget {
                             borderRadius: BorderRadius.circular(50),
                           ),
                         ),
-                        onPressed: () {
-                          Navigator.push(context, MaterialPageRoute(builder: (_) => const ClientView()));
-                        },
-                        child: const Text('Client'),
+                        onPressed: () {},
+                        child: const Text('Existing'),
                       ),
                     ),
                   ],
-                )
+                ),
               ],
             ),
           );
