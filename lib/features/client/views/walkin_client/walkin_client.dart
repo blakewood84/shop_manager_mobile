@@ -1,4 +1,6 @@
 // ignore_for_file: public_member_api_docs, sort_constructors_first
+import 'dart:io';
+
 import 'package:dots_indicator/dots_indicator.dart';
 import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
@@ -57,8 +59,49 @@ class WalkinClient {
   }
 }
 
-class IdentificationNotifier extends StateNotifier {
-  IdentificationNotifier(super.state);
+class IdentificationState {
+  IdentificationState({
+    this.scannedId,
+    this.walkinClient,
+    required this.isLoading,
+  });
+
+  final File? scannedId;
+  final WalkinClient? walkinClient;
+  final bool isLoading;
+
+  IdentificationState.empty()
+      : scannedId = null,
+        walkinClient = null,
+        isLoading = false;
+
+  IdentificationState copyWith({
+    bool isLoading = false,
+    File? scannedId,
+    WalkinClient? walkinClient,
+  }) =>
+      IdentificationState(
+        scannedId: scannedId,
+        walkinClient: walkinClient,
+        isLoading: isLoading,
+      );
+
+  @override
+  String toString() => 'IdentificationState(scannedId: $scannedId, client: $walkinClient, isLoading: $isLoading)';
+
+  @override
+  bool operator ==(covariant IdentificationState other) {
+    if (identical(this, other)) return true;
+
+    return other.scannedId == scannedId && other.walkinClient == walkinClient && other.isLoading == isLoading;
+  }
+
+  @override
+  int get hashCode => scannedId.hashCode ^ walkinClient.hashCode ^ isLoading.hashCode;
+}
+
+class IdentificationNotifier extends StateNotifier<IdentificationState> {
+  IdentificationNotifier() : super(IdentificationState.empty());
 
   // Properties:
   // -----------
