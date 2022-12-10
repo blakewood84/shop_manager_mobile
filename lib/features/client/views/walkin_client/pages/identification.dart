@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
-import 'package:shop_manager_mobile/features/client/views/walkin_client/walkin_client.dart';
 
 class IdentificationPage extends ConsumerWidget {
   const IdentificationPage({super.key});
@@ -11,30 +10,35 @@ class IdentificationPage extends ConsumerWidget {
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          const Text('Identifiction Page'),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              ElevatedButton(
-                onPressed: () {
-                  ref.read(pageControllerProvider).previousPage(
-                        duration: const Duration(milliseconds: 400),
-                        curve: Curves.easeInOut,
-                      );
-                },
-                child: Text('Back Page'),
-              ),
-              const SizedBox(width: 40),
-              ElevatedButton(
-                onPressed: () {
-                  ref.read(pageControllerProvider).nextPage(
-                        duration: const Duration(milliseconds: 400),
-                        curve: Curves.easeInOut,
-                      );
-                },
-                child: Text('Next Page'),
-              ),
-            ],
+          const Text(
+            'We need to verify your identity and age to proceed...\n Please scan a valid ID.',
+            textAlign: TextAlign.center,
+            style: TextStyle(
+              fontSize: 30,
+              color: Colors.white,
+            ),
+          ),
+          TextButton(
+            onPressed: () {
+              Navigator.pop(context);
+            },
+            child: Row(
+              mainAxisSize: MainAxisSize.min,
+              children: const [
+                Icon(
+                  Icons.arrow_back,
+                  size: 40,
+                ),
+                SizedBox(width: 5.0),
+                Text(
+                  'Back',
+                  style: TextStyle(
+                    fontSize: 30,
+                    color: Colors.blueAccent,
+                  ),
+                ),
+              ],
+            ),
           ),
         ],
       ),
