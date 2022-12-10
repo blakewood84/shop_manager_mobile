@@ -31,7 +31,7 @@ class ClientView extends StatelessWidget {
                           ),
                         ),
                         onPressed: () {
-                          Navigator.push(context, MaterialPageRoute(builder: (_) => const WalkinClient()));
+                          Navigator.push(context, MaterialPageRoute(builder: (_) => const WalkinClientScreen()));
                         },
                         child: const Text('Walkin'),
                       ),
