@@ -14,6 +14,14 @@ final pageIndexProvider = StateProvider<double>((ref) => 0);
 class WalkinClient extends ConsumerWidget {
   const WalkinClient({super.key});
 
+  static const _pages = [
+    Question1Page(),
+    Question2Page(),
+    IdentificationPage(),
+    FormPage(),
+    WaiverPage(),
+  ];
+
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final size = MediaQuery.of(context).size;
@@ -21,6 +29,26 @@ class WalkinClient extends ConsumerWidget {
     final controller = ref.read(pageControllerProvider);
 
     return Scaffold(
+      appBar: AppBar(
+        leading: const SizedBox(),
+        actions: [
+          const Center(
+            child: Text(
+              'Exit Sign Up',
+              style: TextStyle(
+                fontSize: 26,
+                color: Colors.white,
+              ),
+            ),
+          ),
+          IconButton(
+            icon: const Icon(Icons.clear),
+            onPressed: () {
+              Navigator.pop(context);
+            },
+          ),
+        ],
+      ),
       body: Column(
         children: [
           SizedBox(
@@ -30,11 +58,7 @@ class WalkinClient extends ConsumerWidget {
               physics: const NeverScrollableScrollPhysics(),
               onPageChanged: (value) => ref.read(pageIndexProvider.notifier).state = value.toDouble(),
               children: const [
-                Question1Page(),
-                Question2Page(),
-                IdentificationPage(),
-                FormPage(),
-                WaiverPage(),
+                ..._pages,
               ],
             ),
           ),
@@ -42,17 +66,19 @@ class WalkinClient extends ConsumerWidget {
             builder: (_, ref, widget) {
               final index = ref.watch(pageIndexProvider);
               return DotsIndicator(
-                dotsCount: 4,
+                dotsCount: _pages.length,
                 position: index,
                 decorator: DotsDecorator(
                   activeColor: Colors.blue,
                   size: const Size.square(9.0),
                   activeSize: const Size(18.0, 9.0),
-                  activeShape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(5.0)),
+                  activeShape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(5.0),
+                  ),
                 ),
               );
             },
-          )
+          ),
         ],
       ),
     );

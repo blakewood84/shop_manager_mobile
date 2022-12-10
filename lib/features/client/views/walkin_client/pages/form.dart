@@ -12,14 +12,29 @@ class FormPage extends ConsumerWidget {
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
           const Text('Form Page'),
-          ElevatedButton(
-            onPressed: () {
-              ref.read(pageControllerProvider).nextPage(
-                    duration: const Duration(milliseconds: 400),
-                    curve: Curves.easeInOut,
-                  );
-            },
-            child: Text('Next Page'),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              ElevatedButton(
+                onPressed: () {
+                  ref.read(pageControllerProvider).previousPage(
+                        duration: const Duration(milliseconds: 400),
+                        curve: Curves.easeInOut,
+                      );
+                },
+                child: Text('Back Page'),
+              ),
+              const SizedBox(width: 40),
+              ElevatedButton(
+                onPressed: () {
+                  ref.read(pageControllerProvider).nextPage(
+                        duration: const Duration(milliseconds: 400),
+                        curve: Curves.easeInOut,
+                      );
+                },
+                child: Text('Next Page'),
+              ),
+            ],
           ),
         ],
       ),
