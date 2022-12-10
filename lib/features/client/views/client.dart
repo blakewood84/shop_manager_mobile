@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/src/widgets/container.dart';
-import 'package:flutter/src/widgets/framework.dart';
-import 'package:shop_manager_mobile/main.dart';
+import 'package:shop_manager_mobile/features/client/views/walkin_client/walkin_client.dart';
 
 class ClientView extends StatelessWidget {
   const ClientView({super.key});
@@ -32,7 +30,9 @@ class ClientView extends StatelessWidget {
                             borderRadius: BorderRadius.circular(50),
                           ),
                         ),
-                        onPressed: () {},
+                        onPressed: () {
+                          Navigator.push(context, MaterialPageRoute(builder: (_) => const WalkinClient()));
+                        },
                         child: const Text('Walkin'),
                       ),
                     ),
