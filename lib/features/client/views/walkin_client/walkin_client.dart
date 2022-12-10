@@ -2,6 +2,12 @@ import 'package:flutter/material.dart';
 import 'package:dots_indicator/dots_indicator.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
+import 'package:shop_manager_mobile/features/client/views/walkin_client/pages/form.dart';
+import 'package:shop_manager_mobile/features/client/views/walkin_client/pages/waiver.dart';
+import 'package:shop_manager_mobile/features/client/views/walkin_client/pages/question1.dart';
+import 'package:shop_manager_mobile/features/client/views/walkin_client/pages/question2.dart';
+import 'package:shop_manager_mobile/features/client/views/walkin_client/pages/identification.dart';
+
 final pageControllerProvider = Provider<PageController>((ref) => PageController(initialPage: 0));
 final pageIndexProvider = StateProvider<double>((ref) => 0);
 
@@ -23,53 +29,12 @@ class WalkinClient extends ConsumerWidget {
               controller: controller,
               physics: const NeverScrollableScrollPhysics(),
               onPageChanged: (value) => ref.read(pageIndexProvider.notifier).state = value.toDouble(),
-              children: [
-                Container(
-                  width: double.infinity,
-                  height: double.infinity,
-                  child: Center(
-                    child: Column(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        Text('Page 1'),
-                        ElevatedButton(
-                          onPressed: () {
-                            controller.animateToPage(
-                              1,
-                              duration: const Duration(milliseconds: 400),
-                              curve: Curves.easeInOut,
-                            );
-                          },
-                          child: Text('Next Page'),
-                        ),
-                      ],
-                    ),
-                  ),
-                ),
-                Container(
-                  width: double.infinity,
-                  height: double.infinity,
-                  child: Center(
-                    child: Column(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        Text('Page 2'),
-                        ElevatedButton(
-                          onPressed: () {
-                            controller.animateToPage(
-                              0,
-                              duration: const Duration(milliseconds: 400),
-                              curve: Curves.easeInOut,
-                            );
-                          },
-                          child: Text(
-                            'Previous Page',
-                          ),
-                        ),
-                      ],
-                    ),
-                  ),
-                ),
+              children: const [
+                Question1Page(),
+                Question2Page(),
+                IdentificationPage(),
+                FormPage(),
+                WaiverPage(),
               ],
             ),
           ),
