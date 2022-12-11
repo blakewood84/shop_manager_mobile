@@ -36,13 +36,6 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "2.1.0"
-  camerawesome:
-    dependency: "direct main"
-    description:
-      name: camerawesome
-      url: "https://pub.dartlang.org"
-    source: hosted
-    version: "0.3.3"
   characters:
     dependency: transitive
     description:
@@ -373,13 +366,6 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "2.1.1"
-  rxdart:
-    dependency: transitive
-    description:
-      name: rxdart
-      url: "https://pub.dartlang.org"
-    source: hosted
-    version: "0.27.7"
   signature:
     dependency: "direct main"
     description:
